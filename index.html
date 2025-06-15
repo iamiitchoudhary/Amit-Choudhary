@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amit Choudhary | Connect With Me</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&family=Montserrat:wght@500;600;700&family=Pacifico&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(rgba(255, 0, 0, 0.7), rgba(255, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2110&q=80');
+            background-size: cover;
+            background-blend-mode: overlay;
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .profile {
+            margin: 20px 0 30px;
+            animation: fadeIn 1s ease-out;
+            position: relative;
+        }
+        
+        .profile-pic-container {
+            width: 220px;
+            height: 220px;
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255,255,255,0.8);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-pic:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+        
+        .circle-border {
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #ff00cc, #ff0066, #ff0033, #cc00ff, #ff00cc
+            );
+            animation: rotateBorder 2s linear infinite;
+            filter: blur(3px);
+            opacity: 0.9;
+        }
+        
+        .name-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 25px 0 5px;
+            gap: 10px;
+        }
+        
+        .name {
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+            letter-spacing: 1px;
+            font-family: 'Great Vibes', cursive;
+        }
+        
+        .heart {
+            font-size: 2.5rem;
+            animation: pulse 1.5s infinite alternate, flicker 0.5s infinite alternate;
+            color: #ff66b2;
+            filter: drop-shadow(0 0 5px #ff66b2);
+        }
+        
+        .greeting {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.8rem;
+            margin: 0 0 15px;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .snapchat-btn {
+            display: inline-flex;
+            align-items: center;
+            margin: 15px 0 25px;
+            padding: 12px 25px;
+            background: #FFFC00;
+            color: #000;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .snapchat-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            background: #ffff33;
+        }
+        
+        .snapchat-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .snapchat-btn:hover::before {
+            left: 100%;
+        }
+        
+        .snapchat-icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+        
+        .motivational-line {
+            font-size: 1.3rem;
+            margin: 25px auto;
+            padding: 15px 20px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 15px;
+            max-width: 80%;
+            font-weight: 500;
+            backdrop-filter: blur(8px);
+            line-height: 1.5;
+            border: 1px solid rgba(255,255,255,0.2);
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .typing-text {
+            display: inline-block;
+            overflow: hidden;
+            border-right: 2px solid white;
+            white-space: nowrap;
+            animation: blinkCursor 0.7s infinite;
+        }
+        
+        .music-btn {
+            display: inline-flex;
+            align-items: center;
+            margin: 30px 0;
+            padding: 15px 35px;
+            background: rgba(255,255,255,0.9);
+            color: #ff0000;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        
+        .music-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .music-icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #00bfff;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            animation: colorChange 5s infinite alternate;
+        }
+        
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .video-container {
+            width: 90%;
+            max-width: 800px;
+            position: relative;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .close-btn:hover {
+            transform: rotate(90deg);
+        }
+        
+        .video-frame {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes rotateBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes blinkCursor {
+            from, to { border-color: transparent; }
+            50% { border-color: white; }
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.2); }
+        }
+        
+        @keyframes flicker {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
+        
+        @keyframes colorChange {
+            0% { color: #00bfff; }
+            50% { color: #ff66b2; }
+            100% { color: #00bfff; }
+        }
+        
+        /* Floating hearts animation */
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .heart-float {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(255,255,255,0.6);
+            animation: float 6s ease-in infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .name {
+                font-size: 2.2rem;
+            }
+            
+            .greeting {
+                font-size: 1.5rem;
+            }
+            
+            .video-frame {
+                height: 250px;
+            }
+            
+            .motivational-line {
+                font-size: 1.1rem;
+                padding: 12px 15px;
+                min-height: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    
+    <div class="container">
+        <div class="profile">
+            <div class="profile-pic-container">
+                <div class="circle-border"></div>
+                <img src="https://fly.linkcdn.cc/upload/2024052717/171683271639261728.jpeg" alt="Amit Choudhary" class="profile-pic">
+            </div>
+            
+            <div class="name-container">
+                <div class="name">Amit Choudhary</div>
+                <div class="heart">🩷</div>
+            </div>
+            
+            <p class="greeting">Get In Touch ☺️</p>
+            
+            <a href="https://www.snapchat.com/add/iamitchaudhary7" class="snapchat-btn" target="_blank">
+                <i class="fab fa-snapchat-ghost snapchat-icon"></i> iamitchaudhary7
+            </a>
+            
+            <div class="motivational-line">
+                <div id="dynamic-text" class="typing-text"></div>
+            </div>
+            
+            <button class="music-btn" onclick="showVideo()">
+                <i class="fas fa-music music-icon"></i> Play My Favorite Song
+            </button>
+        </div>
+        
+        <p class="footer">Made with 🩵 by Amit</p>
+    </div>
+    
+    <div class="video-overlay" id="videoOverlay">
+        <div class="video-container">
+            <span class="close-btn" onclick="hideVideo()">&times;</span>
+            <iframe class="video-frame" src="https://www.youtube.com/embed/EiVowjHYdsk?enablejsapi=1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+    
+    <script>
+        // Motivational lines that will rotate
+        const motivationalLines = [
+            "Success is not final, failure is not fatal: It is the courage to continue that counts. 💪",
+            "Believe you can and you're halfway there. ✨",
+            "The only way to do great work is to love what you do. 🚀",
+            "Don't watch the clock; do what it does. Keep going. ⏳",
+            "Your limitation—it's only your imagination. 🌈",
+            "Push yourself, because no one else is going to do it for you. 🔥",
+            "Great things never come from comfort zones. 🌟",
+            "Dream it. Wish it. Do it. 💫"
+        ];
+        
+        let currentLine = 0;
+        let isDeleting = false;
+        let text = '';
+        let delta = 100; // Faster typing speed
+        let lineIndex = 0;
+        
+        function typeWriter() {
+            const element = document.getElementById("dynamic-text");
+            const fullLine = motivationalLines[lineIndex];
+            
+            if (isDeleting) {
+                // Deleting text
+                text = fullLine.substring(0, text.length - 1);
+            } else {
+                // Adding text
+                text = fullLine.substring(0, text.length + 1);
+            }
+            
+            element.innerHTML = text;
+            
+            if (!isDeleting && text === fullLine) {
+                // Pause at end of line
+                delta = 1500; // Shorter pause
+                isDeleting = true;
+            } else if (isDeleting && text === '') {
+                // Move to next line
+                isDeleting = false;
+                lineIndex = (lineIndex + 1) % motivationalLines.length;
+                delta = 300;
+            } else if (isDeleting) {
+                // Speed up deleting
+                delta = 50;
+            } else {
+                // Normal typing speed
+                delta = 50; // Faster typing
+            }
+            
+            setTimeout(typeWriter, delta);
+        }
+        
+        // Show YouTube video
+        function showVideo() {
+            document.getElementById('videoOverlay').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Hide YouTube video
+        function hideVideo() {
+            document.getElementById('videoOverlay').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            // Stop video playback
+            const iframe = document.querySelector('.video-frame');
+            iframe.src = iframe.src;
+        }
+        
+        // Create floating hearts
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-float';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = 6 + Math.random() * 6 + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.fontSize = 10 + Math.random() * 20 + 'px';
+                heartsContainer.appendChild(heart);
+            }
+        }
+        
+        // Initialize
+        window.onload = function() {
+            createHearts();
+            setTimeout(typeWriter, 1000);
+            
+            // Change circle border colors periodically
+            const circleBorder = document.querySelector('.circle-border');
+            const colors = [
+                'conic-gradient(#ff00cc, #ff0066, #ff0033, #cc00ff, #ff00cc)',
+                'conic-gradient(#00ffcc, #00ff99, #00ff66, #00ccff, #00ffcc)',
+                'conic-gradient(#ffcc00, #ff9900, #ff6600, #ff3300, #ffcc00)',
+                'conic-gradient(#cc00ff, #9900ff, #6600ff, #3300ff, #cc00ff)'
+            ];
+            
+            let colorIndex = 0;
+            setInterval(() => {
+                circleBorder.style.background = colors[colorIndex];
+                colorIndex = (colorIndex + 1) % colors.length;
+            }, 1500); // Faster color changes
+        };
+    </script>
+</body>
+</html>
