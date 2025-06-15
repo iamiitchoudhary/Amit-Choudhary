@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amit Choudhary | Cosmic Connections</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@500;700&family=Space+Mono&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #000;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2110&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(65, 105, 225, 0.3);
+        }
+
+        /* [All your existing CSS remains exactly the same until .space-object] */
+        
+        .space-object {
+            position: fixed;
+            z-index: 1;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        
+        .earth {
+            top: 10%;
+            right: 5%;
+            width: 120px;
+            height: 120px;
+            background-image: url('https://media.giphy.com/media/iWFUpZEtJzVjzt4YQb/giphy.gif');
+            animation: float 30s linear infinite;
+        }
+        
+        .rocket1 {
+            bottom: 15%;
+            left: -100px;
+            width: 100px;
+            height: 100px;
+            background-image: url('https://media.giphy.com/media/3o7TKwxYkeW0ZvTqsU/giphy.gif');
+            animation: rocketLaunch 20s linear infinite;
+        }
+        
+        .rocket2 {
+            top: 20%;
+            left: -150px;
+            width: 80px;
+            height: 80px;
+            background-image: url('https://media.giphy.com/media/3o7TKwxYkeW0ZvTqsU/giphy.gif');
+            animation: rocketLaunch 25s 5s linear infinite;
+        }
+        
+        .satellite {
+            top: 60%;
+            right: -100px;
+            width: 70px;
+            height: 70px;
+            background-image: url('https://media.giphy.com/media/XdYlwl6PpOWFfFqQoI/giphy.gif');
+            animation: satelliteOrbit 40s linear infinite;
+        }
+        
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://media.giphy.com/media/l0HU7JI1uKhkq5m7u/giphy.gif');
+            background-size: cover;
+            z-index: 0;
+            opacity: 0.8;
+        }
+        
+        @keyframes float {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes rocketLaunch {
+            0% { transform: translateX(-100px) translateY(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateX(calc(100vw + 100px)) translateY(-100px); opacity: 0; }
+        }
+        
+        @keyframes satelliteOrbit {
+            0% { transform: translateX(100px) translateY(0) rotate(0deg); }
+            25% { transform: translateX(50vw) translateY(-100px) rotate(90deg); }
+            50% { transform: translateX(80vw) translateY(50vh) rotate(180deg); }
+            75% { transform: translateX(30vw) translateY(70vh) rotate(270deg); }
+            100% { transform: translateX(-100px) translateY(0) rotate(360deg); }
+        }
+
+        /* [Rest of your existing CSS remains exactly the same] */
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="space-object earth"></div>
+    <div class="space-object rocket1"></div>
+    <div class="space-object rocket2"></div>
+    <div class="space-object satellite"></div>
+    
+    <div class="container">
+        <!-- [All your existing content remains exactly the same] -->
+        <div class="profile">
+            <div class="profile-pic-container">
+                <div class="circle-border"></div>
+                <img src="https://fly.linkcdn.cc/upload/2024052717/171683271639261728.jpeg" alt="Amit Choudhary" class="profile-pic">
+            </div>
+            
+            <h1 class="name">AMIT CHOUDHARY</h1>
+            <p class="greeting">CONNECT WITH ME ACROSS THE WORLD</p>
+            
+            <a href="https://www.snapchat.com/add/iamitchaudhary7" class="snapchat-btn" target="_blank">
+                <i class="fab fa-snapchat-ghost snapchat-icon"></i> iamitchaudhary7
+            </a>
+            
+            <div class="motivational-line">
+                <div id="dynamic-text" class="typing-text"></div>
+                <div class="cursor"></div>
+            </div>
+            
+            <button class="music-btn" onclick="showVideo()">
+                <i class="fas fa-music music-icon"></i> Play My Favorite Song
+            </button>
+        </div>
+        
+        <p class="footer">MADE WITH ♡ BY AMIT</p>
+    </div>
+    
+    <div class="video-overlay" id="videoOverlay">
+        <div class="video-container">
+            <span class="close-btn" onclick="hideVideo()">&times;</span>
+            <iframe class="video-frame" src="https://www.youtube.com/embed/EiVowjHYdsk?enablejsapi=1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+    
+    <script>
+        // [All your existing JavaScript remains exactly the same]
+    </script>
+</body>
+</html>
