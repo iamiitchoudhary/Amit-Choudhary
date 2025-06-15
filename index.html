@@ -1,57 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amit Chaudhary - Get In Touch ☺️</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #b30000; /* red theme */
-      color: white;
-      text-align: center;
-    }
-    .bg-container {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: #b30000; /* solid red */
-      z-index: -1;
-    }
-    .profile-img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #fff;
-      margin-top: 40px;
-    }
-    h1 {
-      font-size: 28px;
-      margin: 10px 0 5px;
-    }
-    p {
-      margin-bottom: 30px;
-      font-size: 16px;
-      opacity: 0.9;
-    }
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amit Chaudhary - Linkfly</title>
+    <meta name="description" content="Get In Touch ☺️">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://fly.linkcdn.cc/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://fly.linkcdn.cc/images/favicon.ico" type="image/x-icon">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Amit Chaudhary - Linkfly">
+    <meta property="og:description" content="Get In Touch ☺️">
+    <meta property="og:image" content="https://fly.linkcdn.cc/upload/2024052717/171683271639261728.jpeg">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="400">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Linkfly">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .profile {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .profile-name {
+            margin-top: 15px;
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        .profile-bio {
+            margin-top: 5px;
+            font-size: 16px;
+            color: #ffffff;
+        }
+        
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .link-item {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        
+        .link-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .link-item a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            display: block;
+        }
+        
+        .bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+        }
+    </style>
 </head>
 <body>
-  <div class="bg-container"></div>
-  <div class="container">
-    <img src="https://fly.linkcdn.cc/upload/2024052717/171683271639261728.jpeg" alt="Amit Chaudhary" class="profile-img" />
-    <h1>Amit Chaudhary</h1>
-    <p>Get In Touch ☺️</p>
-  </div>
+    <div class="bg-container"></div>
+    
+    <div class="container">
+        <div class="profile">
+            <img src="https://fly.linkcdn.cc/upload/2024052717/171683271639261728.jpeg" alt="Amit Chaudhary" class="profile-image">
+            <h1 class="profile-name">Amit Chaudhary</h1>
+            <p class="profile-bio">Get In Touch ☺️</p>
+        </div>
+        
+        <div class="links">
+            <!-- Add your links here -->
+            <!-- Example link:
+            <div class="link-item">
+                <a href="https://example.com" target="_blank">My Website</a>
+            </div>
+            -->
+        </div>
+    </div>
 </body>
 </html>
