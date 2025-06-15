@@ -1,80 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Amit Chaudhary - Get In Touch</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amit Chaudhary - Get In Touch ☺️</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom right, #2c3e50, #3498db);
-      color: #fff;
+      font-family: Arial, sans-serif;
+      background-color: #b30000; /* red theme */
+      color: white;
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
+    }
+    .bg-container {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: #b30000; /* solid red */
+      z-index: -1;
     }
     .profile-img {
       width: 140px;
       height: 140px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid #fff;
-      margin-bottom: 15px;
+      border: 3px solid #fff;
+      margin-top: 40px;
     }
     h1 {
-      margin: 10px 0 5px;
       font-size: 28px;
+      margin: 10px 0 5px;
     }
     p {
-      margin: 5px 0 25px;
+      margin-bottom: 30px;
       font-size: 16px;
       opacity: 0.9;
     }
-    .button-container {
+    .container {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      width: 100%;
-      max-width: 300px;
-    }
-    .button-container a {
-      text-decoration: none;
-      background: #ffffff;
-      color: #333;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: background 0.3s;
-    }
-    .button-container a:hover {
-      background: #f1f1f1;
-    }
-    footer {
-      position: absolute;
-      bottom: 10px;
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.6);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
     }
   </style>
 </head>
 <body>
-  <img src="https://fly.linkcdn.cc/upload/2024052717/171683271639261728.jpeg" alt="Amit Chaudhary" class="profile-img" />
-  <h1>Amit Chaudhary</h1>
-  <p>Get In Touch ☺️</p>
-
-  <div class="button-container">
-    <a href="https://wa.me/919876543210" target="_blank">📱 WhatsApp</a>
-    <a href="https://instagram.com/yourusername" target="_blank">📸 Instagram</a>
-    <a href="https://youtube.com/@yourchannel" target="_blank">📺 YouTube</a>
-    <a href="https://yourwebsite.com/resume.pdf" target="_blank">📄 View Resume</a>
+  <div class="bg-container"></div>
+  <div class="container">
+    <img src="https://fly.linkcdn.cc/upload/2024052717/171683271639261728.jpeg" alt="Amit Chaudhary" class="profile-img" />
+    <h1>Amit Chaudhary</h1>
+    <p>Get In Touch ☺️</p>
   </div>
-
-  <footer>Made with ❤️ by Amit</footer>
 </body>
 </html>
