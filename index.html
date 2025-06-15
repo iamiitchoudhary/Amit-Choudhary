@@ -1,104 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<link rel="shortcut icon" href="https://fly.linkcdn.cc/images/favicon.ico" type="image/x-icon">
-<link rel="apple-touch-icon" href="https://fly.linkcdn.cc/images/favicon.ico" type="image/x-icon">
-<title>Amit Chaudhary - Links</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<meta name="description" content="Get In Touch ☺️">
-<meta property="og:title" content="Amit Chaudhary">
-<meta property="og:description" content="Get In Touch ☺️">
-<meta property="og:image" content="https://fly.linkcdn.cc/upload/2024052717/171683271639261728.jpeg">
-<meta property="og:image:width" content="400">
-<meta property="og:image:height" content="400">
-<meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Poppins', sans-serif;
-    }
-    .bg-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        background: linear-gradient(135deg, #6e8efb, #a777e3);
-    }
-    .container {
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 20px;
-        color: white;
-    }
-    .profile {
-        text-align: center;
-        margin: 30px 0;
-    }
-    .profile img {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid white;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-    .profile h1 {
-        margin: 15px 0 5px;
-        font-size: 28px;
-    }
-    .profile p {
-        margin: 0;
-        font-size: 16px;
-    }
-    .links {
-        margin-top: 30px;
-    }
-    .link-item {
-        background: rgba(255,255,255,0.9);
-        color: #333;
-        padding: 15px;
-        margin: 15px 0;
-        border-radius: 10px;
-        text-align: center;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        transition: transform 0.2s;
-    }
-    .link-item:hover {
-        transform: translateY(-3px);
-    }
-    .link-item a {
-        text-decoration: none;
-        color: inherit;
-        font-weight: 500;
-        display: block;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amit Choudhary - Connect With Me</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;500;600;700&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #ff0000;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .profile {
+            margin: 30px 0;
+            animation: fadeIn 1s ease-in;
+        }
+        
+        .profile img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+        
+        .profile img:hover {
+            transform: scale(1.05);
+        }
+        
+        .profile h1 {
+            margin: 25px 0 10px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .greeting {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5rem;
+            margin: 0 0 20px;
+            color: #fff;
+        }
+        
+        .hindi-line {
+            font-size: 1.2rem;
+            margin: 20px auto;
+            padding: 15px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 15px;
+            max-width: 80%;
+            font-weight: 500;
+            backdrop-filter: blur(5px);
+        }
+        
+        .snapchat {
+            display: inline-block;
+            margin: 15px 0;
+            padding: 10px 20px;
+            background: #FFFC00;
+            color: #000;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        
+        .snapchat:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .snapchat i {
+            margin-right: 8px;
+            color: #000;
+        }
+        
+        .youtube-btn {
+            display: block;
+            margin: 30px auto;
+            padding: 15px 30px;
+            background: #FF0000;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+        }
+        
+        .youtube-btn:hover {
+            background: #cc0000;
+            transform: translateY(-3px);
+        }
+        
+        .footer {
+            margin-top: 50px;
+            font-family: 'Pacifico', cursive;
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .video-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .video-wrapper {
+            width: 90%;
+            max-width: 800px;
+            position: relative;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 10px;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            iframe {
+                height: 250px;
+            }
+            
+            .profile h1 {
+                font-size: 2rem;
+            }
+            
+            .greeting {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="bg-container"></div>
-<div class="container">
-    <div class="profile">
-        <img src="https://fly.linkcdn.cc/upload/2024052717/171683271639261728.jpeg" alt="Amit Chaudhary">
-        <h1>Amit Chaudhary</h1>
-        <p>Get In Touch ☺️</p>
+    <div class="bg-container"></div>
+    
+    <div class="container">
+        <div class="profile">
+            <img src="https://fly.linkcdn.cc/upload/2024052717/171683271639261728.jpeg" alt="Amit Choudhary">
+            <h1>Amit Choudhary</h1>
+            <p class="greeting">Get In Touch ☺️</p>
+            
+            <a href="https://www.snapchat.com/add/iamitchaudhary7" class="snapchat" target="_blank">
+                <i class="fab fa-snapchat-ghost"></i> iamitchaudhary7
+            </a>
+            
+            <p class="hindi-line">"हर दिल में बस जाने का हुनर रखता हूँ, मिलो तो सही!" 😍</p>
+            
+            <button class="youtube-btn" onclick="showVideo()">
+                <i class="fab fa-youtube"></i> Play My Favorite Song
+            </button>
+        </div>
+        
+        <div class="footer">
+            Made with ❤️ by Amit
+        </div>
     </div>
     
-    <div class="links">
-        <!-- Your links will be added here -->
+    <div class="video-container" id="videoContainer">
+        <div class="video-wrapper">
+            <span class="close-btn" onclick="hideVideo()">&times;</span>
+            <iframe src="https://www.youtube.com/embed/EiVowjHYdsk?autoplay=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
     </div>
-</div>
-
-<script>
-// Your custom JavaScript can go here
-</script>
+    
+    <script>
+        function showVideo() {
+            document.getElementById('videoContainer').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function hideVideo() {
+            document.getElementById('videoContainer').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            // Reset the iframe source to stop playback
+            document.querySelector('iframe').src = document.querySelector('iframe').src;
+        }
+        
+        // Close video when clicking outside
+        document.getElementById('videoContainer').addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideVideo();
+            }
+        });
+    </script>
 </body>
 </html>
